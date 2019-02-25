@@ -20,7 +20,8 @@ cd $BUILD_DIR
 # ./configure --enable-win64
 # make && sudo make install
 # cd ..
-apt install wine64
+apt-get update
+apt-get install wine64
 
 echo "Checking Wine version"
 wine --version
