@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "Installing Wine for Electron Builds"
+exit 0

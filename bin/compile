@@ -1,0 +1,18 @@
+
+#!/usr/bin/env bash
+echo "-----> Installing Wine for Electron"
+# parse and derive params
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+# change to the the BUILD_DIR ($1)
+cd BUILD_DIR
+# download the binary (-O) silently (-s)
+wget https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz
+tar -xvf wine-4.0.tar.xz
+cd wine-4.0/
+./configure
+./configure --enable-win64
+make && sudo make install
+cd ..
