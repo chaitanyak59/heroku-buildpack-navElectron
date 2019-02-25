@@ -12,17 +12,23 @@ ENV_DIR=$3
 
 # change to the the BUILD_DIR ($1)
 cd $BUILD_DIR
-# download the binary (-O) silently (-s)
-# wget https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz
-# tar -xvf wine-4.0.tar.xz
-# cd wine-4.0/
-# ./configure
-# ./configure --enable-win64
-# make && sudo make install
-# cd ..
-echo "Update apt"
-apt-get update
-apt install wine64
+topic "Installing Flex"
+wget https://github.com/westes/flex/files/981163/flex-2.6.3.tar.gz
+tar -xvzf flex-2.6.3.tar.gz
+cd flex-2.6.4
+# PATH=$PATH:/usr/local/m4/bin/
+# ./configure --prefix=/usr/local/flex
+./configure --prefix=/usr/local/flex
+make
+make install
+cd ..
 
-echo "Checking Wine version"
-wine --version
+topic "Installing Wine"
+wget https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz
+tar -xvf wine-4.0.tar.xz
+cd wine-4.0/
+topic "Current Working Directory"
+pwd
+./configure --enable-win64
+make && make install
+cd ..
