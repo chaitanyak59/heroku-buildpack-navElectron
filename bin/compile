@@ -13,11 +13,9 @@ ENV_DIR=$3
 # change to the the BUILD_DIR ($1)
 cd $BUILD_DIR
 echo "Installing Flex"
-wget https://github.com/westes/flex/files/981163/flex-2.6.3.tar.gz
-tar -xvzf flex-2.6.3.tar.gz
-cd flex-2.6.4
-# PATH=$PATH:/usr/local/m4/bin/
-# ./configure --prefix=/usr/local/flex
+wget http://archive.ubuntu.com/ubuntu/pool/main/f/flex/flex_2.5.35.orig.tar.gz
+tar -xvzf flex_2.5.35.orig.tar.gz
+cd flex_2.5.35.orig
 ./configure --prefix=/usr/local/flex
 make
 make install
